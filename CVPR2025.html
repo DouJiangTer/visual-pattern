@@ -1,0 +1,341 @@
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EscherNet</title>
+    <meta name="description" content="EscherNet: a generative model for scalable view synthesis.">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="robots" content="all">
+    <meta content="en_EN" property="og:locale">
+    <meta content="website" property="og:type">
+    <meta content="TODO" property="og:url">
+    <meta content="EscherNet" property="og:title">
+    <meta content="A Generative Model for Scalable View Synthesis" property="og:description">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/shikun.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="eschernet/eschernet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/foundation.min.css">
+    <link href="assets/fontawesome-pro-6.3.0-web/css/all.min.css" rel="stylesheet">
+    <!--load model viewer google-->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-59EDJ30R2W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-59EDJ30R2W');
+    </script>
+    <!--    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">-->
+    <!--    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">-->
+    <!--    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">-->
+    <link rel="manifest" href="https://kxhit.github.io/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            "HTML-CSS": {
+              scale: 90,
+              fonts: ["Gyre-Pagella"],
+              imageFont: null,
+              undefinedFamily: "'Arial Unicode MS', cmbright"
+            },
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                processEscapes: true
+              }
+          });
+    </script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $.getScript('assets/scripts/shikun.js');
+        });
+    </script>
+    <style>
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+        }
+
+        .image-grid img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+</head><!--  -->
+
+<body>
+    <!-- Define Menu -->
+    <!-- <div id="header"></div> -->
+
+
+    <!-- Title Page -->
+    <div class="container blog" id="first-content" style="background-color:#D5E8D4;">
+        <div class="blog-title">
+            <div class="blog-intro">
+                <div>
+                    <h1 class="title">Unveiling Visual Perception in Language Models: An Attention Head Analysis
+                        Approach</h1>
+                    <p class="author"> <a href="index.html">Jing Bi </a><sup>1</sup>, <a
+                            href="https://shikun.io/">Junjia Guo </a><sup>1</sup>, <a
+                            href="https://shawlyu.github.io/">Yunlong Tang </a><sup>1</sup>, <a
+                            href="https://marwan99.github.io/">Lianggong Bruce Wen </a><sup>2</sup>,
+                        <a href="https://xjqi.github.io/">Zhang Liu </a><sup>2</sup>, <a
+                            href="https://www.doc.ic.ac.uk/~ajd/">Chenliang Xu </a><sup>1</sup>† (†Corresponding Author)
+                    </p>
+                    <p class="author"><sup>1</sup> University of Rochester<br> <sup>2</sup> Corning Inc</p>
+                    <p>
+                        Our analysis reveals a strong correlation between the behavior of these attention heads, the
+                        distribution of attention weights, and their concentration on visual tokens within the input.
+                        These findings enhance our understanding of how LLMs adapt to multimodal tasks, demonstrating
+                        their potential to bridge the gap between textual and visual understanding. This work paves the
+                        way for the development of AI systems capable of engaging with diverse modalities.
+                    </p>
+                    <div>
+                        <a href="https://arxiv.org/abs/2412.18108" class="button icon"
+                            style="background-color: rgba(255, 255, 255, 0.2)"> Paper <i
+                                class="far fa-book-open"></i></a> &nbsp;&nbsp;
+                        <!-- <a href="https://github.com/kxhit/EscherNet" class="button icon" style="background-color: rgba(255, 255, 255, 0.2)">Code <i class="far fa-code"></i></a>  &nbsp;&nbsp; -->
+                        <!-- <a href="https://www.youtube.com/watch?v=pZ4toS0Ji0E&t=7s" class="button icon" style="background-color: rgba(255, 255, 255, 0.2)">Video <i class="far fa-video"></i></a>  &nbsp;&nbsp; -->
+                        <!-- <a href="https://huggingface.co/spaces/kxic/EscherNet" class="button icon" style="background-color: rgba(255, 255, 255, 0.2)">Demo <i class="fa-light fa-face-smiling-hands"></i></a> -->
+                        <!--                        poster-->
+                        <!-- <a href="eschernet/poster.pdf" class="button icon" style="background-color: rgba(255, 255, 255, 0.2)">Poster <i class="far fa-image"></i></a> -->
+                    </div>
+                </div>
+
+                <div class="info">
+                    <p>CVPR 2025</p>
+                    <!--                    <p>Thursday, June 20 </p>-->
+                    <!--                    <p>Oral session: 9:00-10:30, Summit Ballroom (Top floor)</p>-->
+                    <!--                    <p>Poster session: 10:30-12:00, Arch 4A-E, #69</p>-->
+                </div>
+            </div>
+
+            <div class="blog-cover">
+                <img class="foreground" src="images/CVPR2025/AH.png" alt="Attention Head">
+                <img class="background" src="images/CVPR2025/AH.png" alt="Attention Head">
+            </div>
+        </div>
+    </div>
+
+    <div class="container blog main">
+        <h1 class="section">
+            Method Overview
+        </h1>
+
+        <div>
+            <img src="images/CVPR2025/method.png" style="width: 80%">
+            <p class="caption" style="text-align: center;">Example entries in the PointQA Dataset </p>
+        </div>
+
+        <p class="text">
+            PointQA includes three categories of questions, each designed to vary in complexity and focus : General
+            Questions: These prompt the model to identify objects within specified regions and count instances , testing
+            the model’s ability to recognize and count objects. Object-Specific Questions: These directly identify the
+            objects of interest, such as “How many people are in the picture?” This type assesses the model’s ability to
+            detect and count specific objects within a scene. Super Questions: These questions lack explicit object
+            names, requiring the model to interpret the scene broadly to infer the correct subject.
+        </p>
+    </div>
+
+    <div class="container blog large gray">
+        <div>
+            <img src="images/CVPR2025/heatmap.png" style="width: 100%">
+            <p class="caption">The image heatmap visualizes the total attention weight across image tokens and image
+                region tokens. Attention is concentrated in specific layers, particularly in the early and middle
+                layers. Comparing visual and plain generative tasks, we observe that the bounding box does not alter the
+                attention head patterns. However, when comparing with a plain object prompt, including the object name
+                in the question prompt activates additional attention heads not triggered by the visual prompt,
+                suggesting that the attention heads exhibit dynamic activation based on the context—whether visual or
+                linguistic. This highlights their ability to adjust their function and behavior in response to changing
+                inputs. Further comparison between versions 1.6 and 1.5 demonstrates an improvement in image attention
+                across all layers in version 1.6. However, this pattern is not as evident in the 1.6 13B model. The
+                region token attention is omitted in 1.6 due to the more complex handling of the input image, making it
+                challenging to track bbox token indices. Additionally, we see that the visual prompt does not improve
+                the attention head’s focus on specific regions, as evidenced by comparing the first and second rows of
+                the heatmap. </p>
+        </div>
+    </div>
+
+    <div class="container blog main">
+        <h2>Attention Weight Analyze</h2>
+        <p class="text">We conducted 6 controlled experiments across various data and question configurations, varying two key
+            aspects:<br>
+            • Attention guidance using visual cues, such as color bounding boxes (plain vs. visual).<br>
+            • Question types (general, object, and super-object queries).<br>
+        In each experiment, we analyzed the attention weights <span>&#945;<sub>l,h,j</sub></span> for each model,
+            with a particular focus on patterns in attention allocation.</p>
+
+    </div>
+
+    <div class="container blog large gray">
+        <div>
+            <img src="images/CVPR2025/sim.png" style="width: 60%">
+            <!--            center the caption-->
+            <p class="caption"> The visual heads of models within the same family exhibit a strong correlation, meaning
+                that models of the same type typically share the same set of visual heads. In contrast, the visual heads
+                of models from different families are distinctly different. </p>
+
+        </div>
+    </div>
+
+
+    <div class="container blog main">
+        <h2 class="section">
+            Concentration Score
+        </h2>
+
+
+        <p>Based on our observations, we propose an enhanced metric to more effectively capture attention head behavior
+            across different datasets. Specifically, we recommend not only using attention weights but also
+            incorporating a concentration score as a complementary dimension. This concentration score quantifies how
+            narrowly or broadly a model head focuses on particular regions within an image as it processes each layer.
+            Together, these metrics form a two-dimensional representation that offers a more comprehensive view of the
+            model’s attention patterns.</p>
+
+        <p>By using this attention-weight and concentration-score matrix, we can more accurately quantify and compare
+            the model head behavior across diverse datasets, allowing us to identify dataset-specific characteristics
+            and adaptations in attention dynamics.</p>
+
+        <p>The score is based on the entropy of the attention distribution across tokens. Given an attention vector
+            <span>\(\boldsymbol{\alpha}_{l,h,j}\)</span>, the entropy <span>\(\mathcal{H}\)</span> is calculated as:</p>
+
+        <p>
+            $$
+            \mathcal{H} = -\sum_j \alpha_{l,h,j} \log(\alpha_{l,h,j} + \epsilon)
+            $$
+        </p>
+
+        <p>where <span>\(\epsilon\)</span> is a small constant for numerical stability. To compute the concentration
+            score <span>\(\mathcal{C}\)</span>, we normalize this entropy by the maximum possible entropy
+            <span>\(\log_2(N + \epsilon)\)</span>, where <span>\(N\)</span> is the number of tokens:</p>
+
+        <p>
+            $$
+            \mathcal{C} = 1 - \frac{\mathcal{H}}{\log_2(N + \epsilon)}
+            $$
+        </p>
+
+        <p>The concentration score <span>\(\mathcal{C}\)</span> ranges from 0 to 1, with higher values indicating that
+            the model's attention is more narrowly focused on specific parts of the input. We compute the
+            <span>\(\mathcal{C}\)</span> and attention weight of each head and average these values over the entire
+            dataset.</p>
+
+
+    </div>
+    <div class="container blog main">
+        <h2 class="section">
+            Head Detection Score
+        </h2>
+        <p>To detect heads accordingly, our score function is defined over the layer index, attention weight, and
+            attention concentration:</p>
+
+        <p>
+            $$
+            \text{Score}(l, h, j) = \sum_{\text{part of } j \in I} \boldsymbol{\alpha}_{l, h, j} \cdot \left(1 +
+            \mathcal{C} \cdot \text{func}(l)\right)
+            $$
+        </p>
+
+        <p>where \( \text{func}(l) = \frac{k}{l + \epsilon} + a e^{-b l} \) and \( \boldsymbol{\alpha}_{l, h, j} \)
+            represents the attention weights of the head indexed by \( h \) at layer \( l \) for a specific part of the
+            attention context \( j \). The function \( \text{func}(l) \) modulates the layer contribution, ensuring:</p>
+
+            <li>Higher scores for lower layers (\( l \approx 0 \)), offsetting the smaller \( \mathcal{C} \).</li>
+            <li>Gradual reduction of influence as \( l \) increases, reflecting decreasing relevance in deeper layers.</li>
+
+        <p>The term \( \frac{k}{l + \epsilon} \) amplifies contributions from lower layers, with \( \epsilon \) ensuring
+            stability. Together, these terms adaptively highlight attention heads with meaningful contributions while
+            maintaining a layer-dependent balance.</p>
+
+        <!-- MathJax Script for Rendering LaTeX -->
+        <script>
+            window.MathJax = {
+                tex: {
+                    inlineMath: [['$', '$'], ['\\(', '\\)']],
+                    displayMath: [['$$', '$$'], ['\\[', '\\]']]
+                },
+                svg: {
+                    fontCache: 'global'
+                }
+            };
+        </script>
+        <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+
+    </div>
+    <div class="container blog main">
+        <h1 class="section">
+            Application
+        </h1>
+        <h2 class="section">
+            Impact of heads
+        </h2>
+    </div>
+    <div class="container blog large gray">
+        <div>
+            <img src="images/CVPR2025/drop.png" style="width: 80%">
+            <p class="caption" style="text-align: center;">Performance drops for both models, measured in MMBench, POPE, and QBENCH. The results highlight the performance impact under different early stage masking conditions. </p>
+        </div>
+        <div>
+            <img src="images/CVPR2025/drop2.png" style="width: 80%">
+            <p class="caption" style="text-align: center;">Performance drops for both models, measured in MMBench, POPE, and QBENCH. The results highlight the performance impact under all stages masking conditions. </p>
+        </div>
+    </div>
+    <div class="container blog main">
+        <p class="text">
+            In our study, we divided each model into three stages, each representing a third of the model’s layers. We observed that heads tend to cluster in certain layers; therefore, we divided the layers accordingly to analyze the impact systematically.
+
+            We conducted two experiments:<br>
+            
+            • Top Head Selection: We sampled the top 20 heads from each stage, aiming to assess the impact of these heads on performance metrics. Our hypothesis was that these top heads play a critical role in the model’s visual understanding abilities.<br>
+            • Head Removal Impact: After observing that removing heads in the early stages led to the most substantial performance drop, we further analyzed the effect of incrementally removing heads to determine how many heads can be removed before significant performance degradation occurs.<br>
+               
+        </p>
+    </div>
+
+
+    <div class="container blog main">
+        <h1 class="section">
+            Citation
+        </h1>
+
+        <p class="text">If you found this work is useful in your own research, please considering citing the following.
+        </p>
+        <pre><code class="plaintext">@article{bi2024unveiling,
+title={Unveiling Visual Perception in Language Models: An Attention Head Analysis Approach},
+author={Bi, Jing and Guo, Junjia and Tang, Yunlong and Wen, Lianggong Bruce and Liu, Zhang and Xu, Chenliang},
+journal={arXiv preprint arXiv:2412.18108},
+year={2024}
+}</code></pre>
+    </div>
+
+
+
+    <!-- Footer Page -->
+    <footer>
+        <div class="container">
+            <p> Webpage Template from Shikun.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="eschernet/eschernet.js"></script>
+
+</body>
+
+</html>
